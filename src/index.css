@@ -1,0 +1,351 @@
+:root {
+	/* Dark Blue (Dark Mode Elements) */
+	--clr-dark-blue: hsl(209, 23%, 22%);
+
+	/* Very Dark Blue (Dark Mode Background) */
+	--clr-dark-blue-dark: hsl(207, 26%, 17%);
+
+	/* Very Dark Blue (Light Mode Text) */
+	--clr-dark-blue-light: hsl(200, 15%, 8%);
+
+	/* Dark Gray (Light Mode Input) */
+	--clr-dark-gray: hsl(0, 0%, 52%);
+
+	/* Very Light Gray (Light Mode Background) */
+	--clr-very-light-gray: hsl(0, 0%, 98%);
+
+	/* White (Dark Mode Text & Light Mode Elements) */
+	--clr-white: hsl(0, 0%, 100%);
+}
+
+* {
+	font-family: 'Nunito Sans', sans-serif;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	line-height: 1.5;
+	min-height: 100vh;
+}
+
+img {
+	min-width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:visited {
+	color: inherit;
+}
+
+ul {
+	list-style: none;
+}
+
+input {
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+input::placeholder {
+	font-size: 16px;
+	color: var(--clr-dark-blue-light);
+}
+
+input:focus {
+	outline: none;
+}
+
+.icon {
+	background-repeat: no-repeat;
+	background-position: center;
+	padding-inline: 1rem;
+	aspect-ratio: 1;
+}
+
+/* Dark Mode */
+.App.dark .element,
+.App.dark .background,
+.App.dark input::placeholder,
+.App.dark input {
+	color: var(--clr-white);
+}
+
+.App.dark .element {
+	background-color: var(--clr-dark-blue);
+}
+
+.App.dark .background {
+	background-color: var(--clr-dark-blue-dark);
+}
+
+.App.dark .shadow-box {
+	box-shadow: .1em .1em .5rem .1rem rgba(0, 0, 0, 0.088);
+}
+
+/* Dif icons when dark mode is active */
+.App.dark .header__icon {
+	background-image: url(/src/assets/dark-mode-rounded-white.svg);
+}
+
+.App.dark .select__icon.arrow-down {
+	background-image: url(/src/assets/down-fill-white.svg);
+}
+
+.App.dark .select__icon.arrow-up {
+	background-image: url(/src/assets/up-fill-white.svg);
+}
+
+.App.dark .search__icon {
+	background-image: url(/src/assets/search-white.svg);
+}
+
+.App.dark .back-icon {
+	background-image: url(/src/assets/round-arrow-back-white.svg);
+}
+
+/* Normal / Light Mode */
+.element,
+.background,
+input {
+	color: var(--clr-dark-blue-light);
+}
+
+input::placeholder {
+	color: var(--clr-dark-gray);
+}
+
+.element {
+	background-color: var(--clr-white);
+}
+
+.background {
+	background-color: var(--clr-very-light-gray);
+}
+
+.shadow-box {
+	box-shadow: .1em .1em .5rem .1rem rgba(216, 216, 216, 0.392);
+}
+
+/* Header Component */
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 1px 1px .4rem .2px rgba(128, 128, 128, 0.213);
+	padding: 2rem 5rem;
+}
+
+.header__title {
+	font-weight: 800;
+}
+
+.header__button {
+	white-space: nowrap;
+	font-weight: 600;
+	transition: 0.1s linear;
+}
+
+.header__button:hover {
+	transform: scale(1.1);
+}
+
+.header__icon {
+	background-image: url(/src/assets/dark-mode-rounded.svg);
+}
+
+/* Home Component */
+.home {
+	font-size: 16px;
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+	gap: var(--gap, 2rem);
+	min-height: 100vh;
+}
+
+.filters-container {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: var(--gap, 2rem);
+}
+
+.cards-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--gap, 2rem);
+}
+
+/* Search Component */
+.search {
+	width: 100%;
+	padding: 1rem 2rem;
+}
+
+.search__input{
+    width: 90%;
+}
+
+.search__icon {
+	background-image: url(/src/assets/search.svg);
+	margin-right: 1rem;
+}
+
+
+/* Select Component */
+.select,
+.select__dropdown {
+	width: 200px;
+	padding: 1rem 2rem;
+}
+
+.select {
+	position: relative;
+}
+
+.select__toggle-dropdown {
+	cursor: pointer;
+	min-width: 100%;
+	white-space: nowrap;
+}
+
+.select__icon.arrow-down {
+	background-image: url(/src/assets/down-fill.svg);
+}
+
+.select__icon.arrow-up {
+	background-image: url(/src/assets/up-fill.svg);
+}
+
+.select__dropdown {
+	position: absolute;
+	right: 0%;
+	top: 120%;
+	background-color: var(--clr-white);
+}
+
+.select__dropdown li {
+	margin-bottom: .5rem;
+}
+
+.select__dropdown li:hover {
+	font-weight: 600;
+}
+
+/* Country Card Component */
+.country-card {
+	width: 345px;
+	height: auto;
+	transition: 0.5s ease;
+	border-radius: 5%;
+}
+
+.country-card:hover {
+	transform: scale(1.1);
+}
+
+.country-card__img {
+	max-height: 200px;
+	border-radius: 5% 5% 0% 0%;
+}
+
+.country-card__content {
+	padding: 2rem;
+}
+
+.country-card__content h2 {
+	margin-bottom: 1rem;
+}
+
+.country-card__content p {
+	margin-bottom: .5rem;
+}
+
+.country-card__content span {
+	font-weight: 600;
+}
+
+/* Country Details Component */
+.country-details,
+.country-details__content,
+.country-details__info-container,
+.country-details__info,
+.country-details__borders {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap, 2rem);
+}
+
+.country-details {
+	padding: 2rem 5rem;
+	min-height: 100vh;
+}
+
+.country-details__back-btn {
+	width: fit-content;
+	padding: .5rem 1rem;
+	border-radius: 1.2rem;
+}
+
+.back-icon {
+	background-image: url(/src/assets/round-arrow-back.svg);
+}
+
+.country-details__img {
+	width: 100%;
+}
+
+.country-details__info p {
+	margin-bottom: .5rem;
+}
+
+.country-details__info span {
+	font-weight: 600;
+}
+
+.country-details__borders ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gap, 2rem);
+}
+
+.country-details__borders li {
+	padding: .5rem 2rem;
+	border-radius: 1.2rem;
+}
+
+
+/* Media Query */
+@media screen and (min-width: 55rem) {
+	.search {
+		max-width: 440px;
+	}
+
+	.filters-container,
+	.country-details__content,
+	.country-details__info {
+		flex-direction: row;
+	}
+
+	.filters-container {
+		justify-content: space-between;
+	}
+
+	.country-details__content {
+		gap: 5rem;
+	}
+
+	.country-details__info-container {
+		flex-basis: 100%;
+	}
+
+	.country-details__borders {
+		white-space: nowrap;
+	}
+}
