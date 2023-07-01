@@ -1,0 +1,30 @@
+/* Header Component */
+.header {
+    @include flexbox(row, space-between, center);
+    padding: 1.5rem;
+    &__title {
+        white-space: nowrap;
+        font-size: 1.2em;
+        font-weight: 800;
+    }
+    &__button {
+        white-space: nowrap;
+        font-weight: 600;
+        transition: 0.1s linear;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    &__icon {
+        @include icon-theme('/src/assets/dark-mode-rounded-white.svg','/src/assets/dark-mode-rounded.svg');
+    }
+    @include desktop{
+        &{
+            padding: 2rem 5rem;
+        }
+
+        &__title{
+            font-size: 1.5em;
+        }
+    }
+}

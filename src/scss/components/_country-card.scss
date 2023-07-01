@@ -1,0 +1,28 @@
+/* Country Card Component */
+.country-card {
+    @include flexbox($direction: column, $justify: space-between);
+    width: 300px;
+    height: 427px;
+    border-radius: 5%;
+    &:hover {
+        transform: scale(1.02);
+    }
+    &__img {
+        border-radius: 5% 5% 0% 0%;
+        min-height: 50%;
+    }
+    &__content {
+        padding: 2rem;
+        h2 {
+            margin-bottom: .5rem;
+        }
+        p {
+            margin-bottom: .2rem;
+        }
+        span {
+            font-weight: 600;
+        }
+    }  
+}
+
+

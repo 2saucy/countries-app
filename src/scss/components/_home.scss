@@ -1,0 +1,17 @@
+/* Home Component */
+.home {
+	@include flexbox($direction: column, $gap: 2rem);
+	font-size: 16px;
+	padding: 2rem;
+	&__filters-container {
+		@include flexbox($direction: column, $gap: 2rem);
+	}
+	&__cards-container {
+		@include flexbox($justify: space-around, $gap: 2rem, $wrap: wrap)
+	}
+	@include desktop{
+		&__filters-container {
+			@include flexbox($direction: row, $justify: space-between);
+		}
+	}
+}

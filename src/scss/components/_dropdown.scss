@@ -1,0 +1,42 @@
+/* Dropdown Component */
+.select {
+    @include flexbox($justify:center);
+	position: relative;
+    &, &__dropdown {
+        width: 175px;
+        padding: .5rem 1rem .5rem 1.5rem;
+    }
+    &__dropdown {
+        position: absolute;
+        right: 0%;
+        top: 120%;
+        z-index: 2000;
+
+        li {
+            margin-bottom: .5rem;
+            
+            :hover {
+                font-weight: 600;
+            }
+        }
+    }
+    &__toggle-dropdown {
+        @include flexbox($justify: space-between, $align: center);
+        cursor: pointer;
+        white-space: nowrap;
+        width: 100%
+    }
+    &__icon.arrow-down {
+        @include icon-theme('/src/assets/down-fill-white.svg','/src/assets/down-fill.svg');
+    }
+    &__icon.arrow-up {
+        @include icon-theme('/src/assets/up-fill-white.svg','/src/assets/up-fill.svg');
+    }
+    @include desktop{
+        &, &__dropdown{
+            width: 210px;
+        }
+    }
+}
+
+

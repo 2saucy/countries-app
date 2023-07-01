@@ -25,6 +25,9 @@ const Dropdown = ({ setDropdownFilter, setSearchFilter }) => {
 				isOpen && (
 					<ul className="select__dropdown shadow-box element">
 						<li>
+							<a onClick={handleClick} href="#">Show all</a>
+						</li>
+						<li>
 							<a onClick={handleClick} href="#">Africa</a>
 						</li>
 						<li>

@@ -1,0 +1,27 @@
+/* Search Component */
+.search {
+	width: 100%;
+	padding: 1rem 2rem;
+    &__icon{
+        @include icon-theme('/src/assets/search-white.svg' ,'/src/assets/search.svg');
+        margin-right: 1rem;
+    }
+    &__input{
+        background-color: rgba(0, 0, 0, 0);
+        color: $clr-dark-blue-light;
+        width: 90%;
+        border: none;
+        &::placeholder {
+            color: $clr-dark-gray;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    @include desktop{
+        &{
+            max-width: 440px;
+        }
+    }
+}
+

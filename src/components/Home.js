@@ -11,7 +11,10 @@ const Home = ({ countries }) => {
 	const [searchFilter, setSearchFilter] = useState('')
 
 	const filteredCountries = countries.filter(country => {
-		if(dropdownFilter && dropdownFilter === country.region){
+		if (dropdownFilter && dropdownFilter === "Show all"){
+			return true
+		}
+		else if(dropdownFilter && dropdownFilter === country.region){
 			return true
 		}
 		else if(searchFilter && country.name.common.toLowerCase().includes(searchFilter.toLowerCase())){
@@ -24,11 +27,11 @@ const Home = ({ countries }) => {
 
 	return(
 		<div className="home background">
-			<div className="filters-container">
+			<div className="home__filters-container">
 				<Search searchFilter={searchFilter} setSearchFilter={setSearchFilter} setDropdownFilter={setDropdownFilter}/>
 				<Dropdown setDropdownFilter={setDropdownFilter} setSearchFilter={setSearchFilter}/>
 			</div>
-			<div className="cards-container">
+			<div className="home__cards-container">
 				{
 					filteredCountries.length !== 0 ? (
 						filteredCountries.map(country => (

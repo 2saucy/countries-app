@@ -1,0 +1,100 @@
+$ff-sans: 'Nunito Sans', sans-serif;
+$clr-dark-blue: hsl(209, 23%, 22%);
+$clr-dark-blue-dark: hsl(207, 26%, 17%);
+$clr-dark-blue-light: hsl(200, 15%, 8%);
+$clr-dark-gray: hsl(0, 0%, 52%);
+$clr-very-light-gray: hsl(0, 0%, 98%);
+$clr-white: hsl(0, 0%, 100%);
+
+/* Reset */
+*{
+	font-family: $ff-sans;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body{
+	line-height: 1.5;
+	min-height: 100vh;
+}
+
+img{
+	min-width: 100%;
+}
+
+a{
+	text-decoration: none;
+
+	&:visited {
+		color: inherit;
+	}
+}
+
+ul, ol{
+	list-style: none;
+}
+
+@mixin color-theme($dark-bg, $dark-color, $light-bg, $light-color){
+	
+	background-color: $light-bg;
+	color: $light-color;
+
+	.App.dark &{
+		background-color: $dark-bg;
+		color: $dark-color;
+	}
+}
+@mixin icon-theme($icon-dark, $icon-light){
+
+	background-image: url($icon-light);
+	
+	.App.dark &{
+		background-image: url($icon-dark);
+	}
+}
+@mixin shadow-box-theme(){
+	box-shadow: .1em .1em .5rem .1rem rgba(216, 216, 216, 0.392);
+	.App.dark &{
+		box-shadow: .1em .1em .5rem .1rem rgba(0, 0, 0, 0.088);
+	}
+}
+@mixin flexbox($direction:none, $justify:none, $align:none, $gap:none, $wrap:none){
+	display: flex;
+	@if $direction != none {
+		flex-direction: $direction;
+	}
+	@if $justify != none {
+		justify-content: $justify;
+	}
+	@if $align != none {
+		align-items: $align;
+	}
+	@if $wrap != none{
+		flex-wrap: $wrap;
+	}
+	@if $gap != none {
+		gap: $gap;
+	}
+}
+@mixin desktop(){
+	@media screen and (min-width: 55em) {
+		@content
+	}
+}
+
+.element{
+	@include color-theme($clr-dark-blue, $clr-white, $clr-white, $clr-dark-blue-light)
+}
+.background{
+	@include color-theme($clr-dark-blue-dark, $clr-white, $clr-very-light-gray, $clr-dark-blue-light)
+}
+.shadow-box{
+	@include shadow-box-theme();
+}
+.icon{
+	background-repeat: no-repeat;
+	background-position: center;
+	padding-inline: 1rem;
+	aspect-ratio: 1;
+}
